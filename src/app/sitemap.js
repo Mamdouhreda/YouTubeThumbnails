@@ -1,16 +1,23 @@
 export default function sitemap() {
-  return [
+  const baseUrl = "https://youtubedownloadthumbnails.com";
+  const currentDate = new Date();
+
+  // Define URLs
+  const urls = [
     {
-      url: "https://youtubedownloadthumbnails.com",
-      lastModified: new Date(),
+      url: baseUrl,
+      lastModified: currentDate,
       changeFrequency: "daily",
       priority: 1,
     },
     {
-      url: "https://youtubedownloadthumbnails.com/privacy",
-      lastModified: new Date(),
+      url: `${baseUrl}/privacy`,
+      lastModified: currentDate,
       changeFrequency: "monthly",
       priority: 0.8,
     },
+    // Add other important URLs from your site here
   ];
+
+  return urls;
 }
