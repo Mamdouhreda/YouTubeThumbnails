@@ -1,25 +1,29 @@
 "use client";
 
 import Script from "next/script";
-import { useEffect } from "react";
+import { useEffect, Suspense } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
 
-export default function GoogleAnalytics({
-  GA_MEASUREMENT_ID = "G-BVYL393MFT",
-}) {
+function Analytics({ GA_MEASUREMENT_ID }) {
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
   useEffect(() => {
-    if (typeof window !== "undefined" && window.gtag && pathname) {
-      const pagePath = searchParams.toString()
-        ? `${pathname}?${searchParams.toString()}`
-        : pathname;
-
-      window.gtag("config", GA_MEASUREMENT_ID, { page_path: pagePath });
+    if (typeof window !== "undefined" && window.gtag) {
+      window.gtag("config", GA_MEASUREMENT_ID, {
+        page_path:
+          pathname +
+          (searchParams?.toString() ? `?${searchParams.toString()}` : ""),
+      });
     }
   }, [pathname, searchParams, GA_MEASUREMENT_ID]);
 
+  return null;
+}
+
+export default function GoogleAnalytics({
+  GA_MEASUREMENT_ID = "G-BVYL393MFT",
+}) {
   return (
     <>
       <Script
@@ -38,6 +42,10 @@ export default function GoogleAnalytics({
           `,
         }}
       />
+      {/* 🔹 Wrap the Analytics component in Suspense */}
+      <Suspense fallback={null}>
+        <Analytics GA_MEASUREMENT_ID={GA_MEASUREMENT_ID} />
+      </Suspense>
     </>
   );
 }
