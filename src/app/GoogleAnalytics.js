@@ -11,13 +11,12 @@ export default function GoogleAnalytics({
   const searchParams = useSearchParams();
 
   useEffect(() => {
-    if (pathname && window.gtag) {
-      // Send pageview with path
-      window.gtag("config", GA_MEASUREMENT_ID, {
-        page_path:
-          pathname +
-          (searchParams?.toString() ? `?${searchParams.toString()}` : ""),
-      });
+    if (typeof window !== "undefined" && window.gtag && pathname) {
+      const pagePath = searchParams.toString()
+        ? `${pathname}?${searchParams.toString()}`
+        : pathname;
+
+      window.gtag("config", GA_MEASUREMENT_ID, { page_path: pagePath });
     }
   }, [pathname, searchParams, GA_MEASUREMENT_ID]);
 
