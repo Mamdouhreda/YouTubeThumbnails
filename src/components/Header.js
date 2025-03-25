@@ -10,7 +10,7 @@ const Header = () => {
             className="flex items-center space-x-2 text-2xl font-bold hover:text-[#FF0000] transition-colors"
           >
             <span className="text-[#FF0000]">YouTube</span>
-            <span>thumbnails Download</span>
+            <span>Thumbnails Download</span>
           </Link>
           <nav className="flex space-x-6">
             <Link href="/" className="hover:text-[#FF0000] transition-colors">
