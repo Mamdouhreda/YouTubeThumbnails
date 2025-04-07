@@ -70,7 +70,7 @@ export default function RootLayout({ children }) {
         {/* Ahrefs Analytics */}
         <script
           src="https://analytics.ahrefs.com/analytics.js"
-          data-key="Io6uTCdbv+LziOX9EGujMA"
+          data-key="3y1dapbvyN9uOeJGhQ78oA"
           async
         />
         {/* Auto-updating SEO date structured data */}
