@@ -2,6 +2,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import GoogleAnalytics from "./GoogleAnalytics";
+import Script from "next/script";
 
 export const metadata = {
   title: "Download YouTube Thumbnail | Free YouTube Thumbnail Downloader",
@@ -46,6 +47,11 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <head>
         <GoogleAnalytics />
+        <Script
+          src="https://analytics.ahrefs.com/analytics.js"
+          data-key="Io6uTCdbv+LziOX9EGujMA"
+          strategy="afterInteractive"
+        />
       </head>
       <body className="min-h-screen flex flex-col">
         <Header />
