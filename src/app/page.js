@@ -220,10 +220,13 @@ export default function Home() {
       />
 
       <article className="max-w-2xl mx-auto">
-        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-4 leading-tight">
-          Download <span className="text-[#FF0000]">YouTube</span> Thumbnail -
-          Free HD Quality Images
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-4 leading-tight">
+          <span className="text-[#FF0000]">YouTube</span> Thumbnail Downloader
         </h1>
+
+        <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold text-center mb-6">
+          ▷ Save YT Video Thumbnails in HD Quality
+        </h2>
 
         <p className="text-sm sm:text-base text-center text-gray-600 mb-8 max-w-xl mx-auto">
           Download YouTube thumbnails in HD quality (1280x720). Get
@@ -273,9 +276,9 @@ export default function Home() {
 
         {thumbnails.length > 0 && (
           <section className="mt-8">
-            <h2 className="text-xl font-semibold mb-4 text-[#FF0000]">
+            <h3 className="text-xl font-semibold mb-4 text-[#FF0000]">
               Available Thumbnail Sizes
-            </h2>
+            </h3>
             <div className="mb-8">
               <div className="relative aspect-video">
                 <img
@@ -335,11 +338,83 @@ export default function Home() {
           </section>
         )}
 
-        <section className="mt-16 mb-12">
-          <h2 className="text-2xl font-bold text-center mb-8">
-            What We <span className="text-[#FF0000]">Do</span>
+        <section className="mt-16 mb-8">
+          <h2 className="text-2xl font-bold text-center mb-6">
+            How to{" "}
+            <span className="text-[#FF0000]">Download YouTube Thumbnails</span>
           </h2>
-          <Accordion items={accordionItems} />
+          <div className="space-y-8">
+            <div className="bg-gray-50 p-6 rounded-lg shadow-sm">
+              <h3 className="text-xl font-semibold mb-3">
+                1. Download YouTube Thumbnails Instantly
+              </h3>
+              <p className="text-gray-700">
+                At YouTubeDownloadThumbnails.com, we provide an easy and fast
+                way to download YouTube thumbnails with just a few clicks.
+                Simply paste the YouTube video URL, and you&apos;ll get access
+                to the thumbnail image in seconds. Whether you need it for
+                personal use or to showcase content on your blog, we make it
+                simple to download high-quality YouTube thumbnails quickly and
+                easily.
+              </p>
+            </div>
+
+            <div className="bg-gray-50 p-6 rounded-lg shadow-sm">
+              <h3 className="text-xl font-semibold mb-3">
+                2. Multiple Thumbnail Sizes Available
+              </h3>
+              <p className="text-gray-700">
+                We offer YouTube thumbnails in various sizes, so you can choose
+                the perfect one for your needs. Whether you need a
+                high-resolution HD thumbnail for YouTube or a smaller image for
+                sharing on social media or websites, we provide the right
+                YouTube image sizes for you to download and use. Get the perfect
+                YouTube thumbnail size in just a few clicks!
+              </p>
+            </div>
+
+            <div className="bg-gray-50 p-6 rounded-lg shadow-sm">
+              <h3 className="text-xl font-semibold mb-3">
+                3. High-Quality Thumbnails for Every Video
+              </h3>
+              <p className="text-gray-700">
+                Every YouTube thumbnail you download through our platform is in
+                high-quality resolution, ensuring that your image looks sharp
+                and professional. Whether you&apos;re a content creator or need
+                the best image for a blog post, our tool provides access to
+                crisp, high-resolution YouTube thumbnails for every video.
+                Perfect for YouTubers and marketers!
+              </p>
+            </div>
+
+            <div className="bg-gray-50 p-6 rounded-lg shadow-sm">
+              <h3 className="text-xl font-semibold mb-3">
+                4. Easy Thumbnail Sharing on Social Media
+              </h3>
+              <p className="text-gray-700">
+                Once you&apos;ve downloaded your YouTube thumbnail, you can
+                easily share it across popular social media platforms like
+                Instagram, Facebook, Twitter, and others. Whether you&apos;re
+                promoting your latest video or using the thumbnail for social
+                media content, our platform makes it easy to share YouTube
+                thumbnails and enhance your online engagement.
+              </p>
+            </div>
+
+            <div className="bg-gray-50 p-6 rounded-lg shadow-sm">
+              <h3 className="text-xl font-semibold mb-3">
+                5. Free to Use – No Registration Required
+              </h3>
+              <p className="text-gray-700">
+                Enjoy the convenience of downloading YouTube thumbnails for free
+                on our site with no sign-up or registration required. Whether
+                you need thumbnails for personal use or to boost your YouTube
+                channel, you can get high-quality YouTube images without any
+                hassle or hidden fees. Start downloading your free YouTube
+                thumbnails today!
+              </p>
+            </div>
+          </div>
         </section>
       </article>
     </>

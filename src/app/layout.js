@@ -4,17 +4,20 @@ import Footer from "@/components/Footer";
 import GoogleAnalytics from "./GoogleAnalytics";
 import Script from "next/script";
 
+// Get current date in ISO format for SEO
+const currentDate = new Date().toISOString().split("T")[0];
+
 export const metadata = {
   title: "Download YouTube Thumbnail | Free YouTube Thumbnail Downloader",
   description:
-    "Download YouTube thumbnail images in HD quality (1280x720). Easy to use - just paste the video URL to download YouTube thumbnails in multiple sizes. 100% Free!",
+    "Download YouTube thumbnails in HD (1280x720) & multiple sizes with our free downloader tool. Instantly save high-quality YouTube video thumbnails with no registration. Perfect for content creators, marketers & social media.",
   keywords:
     "download youtube thumbnail, youtube thumbnail download, save youtube thumbnail, youtube thumbnail grabber, download youtube video thumbnail, youtube thumbnail extractor",
   metadataBase: new URL("https://youtubedownloadthumbnails.com"),
   openGraph: {
     title: "Download YouTube Thumbnail - Get HD Thumbnails Free",
     description:
-      "Download any YouTube video thumbnail in HD quality. Get YouTube thumbnails in multiple sizes (1280x720, 480x360). No signup, instant download.",
+      "Download YouTube thumbnails in HD (1280x720) & multiple sizes instantly. Our free downloader saves high-quality thumbnails from any video with no registration required. Ideal for creators & social media.",
     url: "https://youtubedownloadthumbnails.com",
     siteName: "Download YouTube Thumbnail",
     locale: "en_US",
@@ -24,7 +27,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Download YouTube Thumbnail - HD Quality Thumbnail Downloader",
     description:
-      "Download YouTube thumbnails instantly. Get high-quality video thumbnails from any YouTube video URL. Free tool, no registration needed.",
+      "Save YouTube thumbnails in HD quality instantly. Our free downloader tool provides multiple sizes (1280x720, 480x360) with no signup. Perfect for content creators & marketers.",
   },
   robots: {
     index: true,
@@ -43,14 +46,38 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  // Generate the structured data with the current date
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    name: "YouTube Thumbnail Downloader",
+    description: "Free tool to download YouTube thumbnails in HD quality",
+    url: "https://youtubedownloadthumbnails.com",
+    applicationCategory: "UtilityApplication",
+    operatingSystem: "Any",
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "USD",
+    },
+    dateModified: currentDate,
+  };
+
   return (
     <html lang="en">
       <head>
         <GoogleAnalytics />
-        <Script
+        {/* Ahrefs Analytics */}
+        <script
           src="https://analytics.ahrefs.com/analytics.js"
           data-key="Io6uTCdbv+LziOX9EGujMA"
-          strategy="afterInteractive"
+          async
+        />
+        {/* Auto-updating SEO date structured data */}
+        <Script
+          id="structured-date-data"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
       </head>
       <body className="min-h-screen flex flex-col">

@@ -19,7 +19,7 @@ export default function PrivacyPolicy() {
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
       <h1 className="text-3xl font-bold  mb-8 text-[#FF0000]">
-        Privacy Policy for YouTubeDownloadThumbnails.com
+        Privacy Policy
       </h1>
 
       <div className="prose prose-lg max-w-none">
