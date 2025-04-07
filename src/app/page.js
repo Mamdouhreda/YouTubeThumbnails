@@ -224,16 +224,6 @@ export default function Home() {
           <span className="text-[#FF0000]">YouTube</span> Thumbnail Downloader
         </h1>
 
-        <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold text-center mb-6">
-          ▷ Save YT Video Thumbnails in HD Quality
-        </h2>
-
-        <p className="text-sm sm:text-base text-center text-gray-600 mb-8 max-w-xl mx-auto">
-          Download YouTube thumbnails in HD quality (1280x720). Get
-          high-resolution thumbnail images from any YouTube video URL instantly.
-          Free thumbnail downloader, no registration required.
-        </p>
-
         <section>
           <form onSubmit={handleSubmit} className="space-y-4">
             <label
@@ -264,6 +254,17 @@ export default function Home() {
             </p>
           </form>
         </section>
+
+        <div className="mt-8 mb-8 text-center">
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold text-center mb-4">
+            ▷ Save YT Video Thumbnails in HD Quality
+          </h2>
+          <p className="text-sm sm:text-base text-center text-gray-600 mb-4 max-w-xl mx-auto">
+            Download YouTube thumbnails in HD quality (1280x720). Get
+            high-resolution thumbnail images from any YouTube video URL
+            instantly. Free thumbnail downloader, no registration required.
+          </p>
+        </div>
 
         {error && (
           <div
