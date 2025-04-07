@@ -260,7 +260,7 @@ export default function Home() {
             ▷ Save YT Video Thumbnails in HD Quality
           </h2>
           <p className="text-sm sm:text-base text-center text-gray-600 mb-4 max-w-xl mx-auto">
-            Download YouTube thumbnails in HD quality (1280x720). Get
+            Download YouTube thumbnail in HD quality (1280x720). Get
             high-resolution thumbnail images from any YouTube video URL
             instantly. Free thumbnail downloader, no registration required.
           </p>
