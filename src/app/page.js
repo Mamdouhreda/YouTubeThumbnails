@@ -135,20 +135,75 @@ export default function Home() {
       {
         url: `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`,
         size: "1280x720",
+        filename: `youtube-thumbnail-hd-1280-720-${videoId}.jpg`,
       },
       {
         url: `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`,
         size: "480x360",
+        filename: `youtube-thumbnail-480-360-${videoId}.jpg`,
       },
       {
         url: `https://img.youtube.com/vi/${videoId}/mqdefault.jpg`,
         size: "320x180",
+        filename: `youtube-thumbnail-320-180-${videoId}.jpg`,
       },
       {
         url: `https://img.youtube.com/vi/${videoId}/default.jpg`,
         size: "120x90",
+        filename: `youtube-thumbnail-120-90-${videoId}.jpg`,
       },
     ]);
+  };
+
+  // Function to handle direct download using Fetch API
+  const handleDownload = async (imageUrl, filename) => {
+    try {
+      // Create a temporary canvas to convert the image
+      const image = new Image();
+      image.crossOrigin = "anonymous";
+
+      // Create a promise to wait for image loading
+      const imageLoaded = new Promise((resolve, reject) => {
+        image.onload = resolve;
+        image.onerror = reject;
+        image.src = imageUrl;
+      });
+
+      // Wait for the image to load
+      await imageLoaded;
+
+      // Create canvas and draw image
+      const canvas = document.createElement("canvas");
+      canvas.width = image.naturalWidth;
+      canvas.height = image.naturalHeight;
+      const ctx = canvas.getContext("2d");
+      ctx.drawImage(image, 0, 0);
+
+      // Convert canvas to blob and download
+      canvas.toBlob(
+        (blob) => {
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement("a");
+          a.style.display = "none";
+          a.href = url;
+          a.download = filename;
+          document.body.appendChild(a);
+          a.click();
+
+          // Clean up
+          setTimeout(() => {
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+          }, 100);
+        },
+        "image/jpeg",
+        0.95
+      );
+    } catch (err) {
+      console.error("Download failed:", err);
+      // Fallback to opening in a new tab
+      window.open(imageUrl, "_blank");
+    }
   };
 
   return (
@@ -165,12 +220,12 @@ export default function Home() {
       />
 
       <article className="max-w-2xl mx-auto">
-        <h1 className="text-4xl font-bold text-center mb-4 leading-tight">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-4 leading-tight">
           Download <span className="text-[#FF0000]">YouTube</span> Thumbnail -
           Free HD Quality Images
         </h1>
 
-        <p className="text-center text-gray-600 mb-8 max-w-xl mx-auto">
+        <p className="text-sm sm:text-base text-center text-gray-600 mb-8 max-w-xl mx-auto">
           Download YouTube thumbnails in HD quality (1280x720). Get
           high-resolution thumbnail images from any YouTube video URL instantly.
           Free thumbnail downloader, no registration required.
@@ -232,17 +287,15 @@ export default function Home() {
                   <p className="text-black font-medium">
                     HD Quality - {thumbnails[0].size}
                   </p>
-                  <a
-                    href={thumbnails[0].url}
-                    download={`youtube-thumbnail-hd-${thumbnails[0].size.replace(
-                      "x",
-                      "-"
-                    )}.jpg`}
+                  <button
+                    onClick={() =>
+                      handleDownload(thumbnails[0].url, thumbnails[0].filename)
+                    }
                     className="px-4 py-2 bg-[#FF0000] text-white rounded-lg shadow-md hover:bg-[#CC0000] transition-colors"
                     aria-label="Download HD thumbnail"
                   >
                     Download HD
-                  </a>
+                  </button>
                 </div>
                 <SocialShareButtons
                   imageUrl={thumbnails[0].url}
@@ -262,17 +315,15 @@ export default function Home() {
                     <p className="text-black font-medium">
                       Size: {thumbnail.size}
                     </p>
-                    <a
-                      href={thumbnail.url}
-                      download={`youtube-thumbnail-${thumbnail.size.replace(
-                        "x",
-                        "-"
-                      )}.jpg`}
+                    <button
+                      onClick={() =>
+                        handleDownload(thumbnail.url, thumbnail.filename)
+                      }
                       className="px-4 py-2 bg-[#FF0000] text-white rounded-lg shadow-md hover:bg-[#CC0000] transition-colors"
                       aria-label={`Download ${thumbnail.size} thumbnail`}
                     >
                       Download
-                    </a>
+                    </button>
                   </div>
                   <SocialShareButtons
                     imageUrl={thumbnail.url}
