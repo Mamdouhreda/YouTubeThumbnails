@@ -28,6 +28,12 @@ const Header = () => {
               Home
             </Link>
             <Link
+              href="/bulk"
+              className="hover:text-[#FF0000] transition-colors"
+            >
+              Bulk Download
+            </Link>
+            <Link
               href="/privacy"
               className="hover:text-[#FF0000] transition-colors"
             >
@@ -68,6 +74,13 @@ const Header = () => {
               onClick={() => setIsMenuOpen(false)}
             >
               Home
+            </Link>
+            <Link
+              href="/bulk"
+              className="hover:text-[#FF0000] transition-colors py-2 border-b border-gray-700"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Bulk Download
             </Link>
             <Link
               href="/privacy"

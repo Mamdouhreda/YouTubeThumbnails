@@ -10,6 +10,12 @@ export default function sitemap() {
       changeFrequency: "daily",
       priority: 1,
     },
+    {
+      url: `${baseUrl}/bulk`,
+      lastModified: currentDate,
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
     // Add other important URLs from your site here
   ];
 
