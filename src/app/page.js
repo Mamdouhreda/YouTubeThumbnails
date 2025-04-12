@@ -4,6 +4,7 @@ import { useState } from "react";
 import Accordion from "@/components/Accordion";
 import SocialShareButtons from "@/components/SocialShareButtons";
 import Script from "next/script";
+import Image from "next/image";
 
 export default function Home() {
   const [url, setUrl] = useState("");
@@ -155,54 +156,29 @@ export default function Home() {
     ]);
   };
 
-  // Function to handle direct download using Fetch API
+  // Function to handle direct download using API endpoint
   const handleDownload = async (imageUrl, filename) => {
     try {
-      // Create a temporary canvas to convert the image
-      const image = new Image();
-      image.crossOrigin = "anonymous";
+      // Use our API endpoint for downloading
+      const downloadUrl = `/api/download-thumbnail?url=${encodeURIComponent(
+        imageUrl
+      )}&filename=${encodeURIComponent(filename)}`;
 
-      // Create a promise to wait for image loading
-      const imageLoaded = new Promise((resolve, reject) => {
-        image.onload = resolve;
-        image.onerror = reject;
-        image.src = imageUrl;
-      });
+      // Create an anchor and trigger the download
+      const a = document.createElement("a");
+      a.href = downloadUrl;
+      a.download = filename;
+      a.target = "_blank"; // Opens in a new tab if download doesn't start automatically
+      document.body.appendChild(a);
+      a.click();
 
-      // Wait for the image to load
-      await imageLoaded;
-
-      // Create canvas and draw image
-      const canvas = document.createElement("canvas");
-      canvas.width = image.naturalWidth;
-      canvas.height = image.naturalHeight;
-      const ctx = canvas.getContext("2d");
-      ctx.drawImage(image, 0, 0);
-
-      // Convert canvas to blob and download
-      canvas.toBlob(
-        (blob) => {
-          const url = URL.createObjectURL(blob);
-          const a = document.createElement("a");
-          a.style.display = "none";
-          a.href = url;
-          a.download = filename;
-          document.body.appendChild(a);
-          a.click();
-
-          // Clean up
-          setTimeout(() => {
-            document.body.removeChild(a);
-            URL.revokeObjectURL(url);
-          }, 100);
-        },
-        "image/jpeg",
-        0.95
-      );
+      // Clean up
+      setTimeout(() => {
+        document.body.removeChild(a);
+      }, 100);
     } catch (err) {
       console.error("Download failed:", err);
-      // Fallback to opening in a new tab
-      window.open(imageUrl, "_blank");
+      alert("Failed to download the thumbnail. Please try again.");
     }
   };
 
@@ -282,11 +258,17 @@ export default function Home() {
             </h3>
             <div className="mb-8">
               <div className="relative aspect-video">
-                <img
-                  src={thumbnails[0].url}
-                  alt={`High Resolution YouTube Thumbnail (${thumbnails[0].size})`}
-                  className="rounded-lg shadow-lg w-full"
-                />
+                <div className="w-full aspect-video relative rounded-lg overflow-hidden">
+                  <Image
+                    src={thumbnails[0].url}
+                    alt={`High Resolution YouTube Thumbnail (${thumbnails[0].size})`}
+                    fill
+                    priority={true}
+                    sizes="(max-width: 768px) 100vw, 700px"
+                    className="rounded-lg shadow-lg object-cover"
+                    unoptimized={false}
+                  />
+                </div>
                 <div className="flex justify-between items-center mt-2">
                   <p className="text-black font-medium">
                     HD Quality - {thumbnails[0].size}
@@ -310,11 +292,17 @@ export default function Home() {
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               {thumbnails.slice(1).map((thumbnail, index) => (
                 <div key={index} className="relative aspect-video">
-                  <img
-                    src={thumbnail.url}
-                    alt={`YouTube Thumbnail Size ${thumbnail.size}`}
-                    className="rounded-lg shadow-lg w-full"
-                  />
+                  <div className="w-full aspect-video relative rounded-lg overflow-hidden">
+                    <Image
+                      src={thumbnail.url}
+                      alt={`YouTube Thumbnail Size ${thumbnail.size}`}
+                      fill
+                      loading="lazy"
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                      className="rounded-lg shadow-lg object-cover"
+                      unoptimized={false}
+                    />
+                  </div>
                   <div className="flex justify-between items-center mt-2">
                     <p className="text-black font-medium">
                       Size: {thumbnail.size}
