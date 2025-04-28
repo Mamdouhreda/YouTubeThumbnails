@@ -2,18 +2,18 @@ export default function sitemap() {
   const baseUrl = "https://youtubedownloadthumbnails.com";
   const currentDate = new Date().toISOString();
 
-  // Define URLs
+  // Define URLs with proper canonical paths
   const urls = [
     {
       url: baseUrl,
       lastModified: currentDate,
-      changeFrequency: "monthly",
+      changeFrequency: "daily",
       priority: 1,
     },
     {
       url: `${baseUrl}/bulk`,
       lastModified: currentDate,
-      changeFrequency: "monthly",
+      changeFrequency: "daily",
       priority: 0.8,
     },
   ];

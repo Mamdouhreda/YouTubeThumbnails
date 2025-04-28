@@ -33,12 +33,6 @@ const Header = () => {
             >
               Bulk Download
             </Link>
-            <Link
-              href="/privacy"
-              className="hover:text-[#FF0000] transition-colors"
-            >
-              Privacy Policy
-            </Link>
           </nav>
 
           {/* Mobile Menu Button */}
@@ -81,13 +75,6 @@ const Header = () => {
               onClick={() => setIsMenuOpen(false)}
             >
               Bulk Download
-            </Link>
-            <Link
-              href="/privacy"
-              className="hover:text-[#FF0000] transition-colors py-2 border-b border-gray-700"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Privacy Policy
             </Link>
           </nav>
         </div>

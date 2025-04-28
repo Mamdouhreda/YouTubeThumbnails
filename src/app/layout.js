@@ -8,26 +8,37 @@ import Script from "next/script";
 const currentDate = new Date().toISOString().split("T")[0];
 
 export const metadata = {
-  title: "Download YouTube Thumbnail | Free YouTube Thumbnail Downloader",
+  title: "Download YouTube Thumbnails - Free YouTube Thumbnail Downloader Tool",
   description:
-    "Download YouTube thumbnails in HD (1280x720) & multiple sizes with our free downloader tool. Instantly save high-quality YouTube video thumbnails with no registration. Perfect for content creators, marketers & social media.",
+    "Download YouTube thumbnails in high quality. Free tool to download YouTube video thumbnails in multiple sizes. No registration required.",
   keywords:
-    "download youtube thumbnail, youtube thumbnail download, save youtube thumbnail, youtube thumbnail grabber, download youtube video thumbnail, youtube thumbnail extractor",
+    "download youtube thumbnails, youtube thumbnail download, youtube thumbnail downloader, download youtube video thumbnail, youtube thumbnail grabber",
   metadataBase: new URL("https://youtubedownloadthumbnails.com"),
   openGraph: {
-    title: "Download YouTube Thumbnail - Get HD Thumbnails Free",
+    title:
+      "Download YouTube Thumbnails - Free YouTube Thumbnail Downloader Tool",
     description:
-      "Download YouTube thumbnails in HD (1280x720) & multiple sizes instantly. Our free downloader saves high-quality thumbnails from any video with no registration required. Ideal for creators & social media.",
+      "Download YouTube thumbnails in high quality. Free tool to download YouTube video thumbnails in multiple sizes. No registration required.",
     url: "https://youtubedownloadthumbnails.com",
-    siteName: "Download YouTube Thumbnail",
+    siteName: "YouTube Thumbnail Downloader",
+    images: [
+      {
+        url: "/api/og",
+        width: 1200,
+        height: 630,
+        alt: "Download YouTube Thumbnails",
+      },
+    ],
     locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Download YouTube Thumbnail - HD Quality Thumbnail Downloader",
+    title:
+      "Download YouTube Thumbnails - Free YouTube Thumbnail Downloader Tool",
     description:
-      "Save YouTube thumbnails in HD quality instantly. Our free downloader tool provides multiple sizes (1280x720, 480x360) with no signup. Perfect for content creators & marketers.",
+      "Download YouTube thumbnails in high quality. Free tool to download YouTube video thumbnails in multiple sizes. No registration required.",
+    images: ["/api/og"],
   },
   robots: {
     index: true,
