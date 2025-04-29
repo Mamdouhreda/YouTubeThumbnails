@@ -231,7 +231,7 @@ export default function Home() {
           </form>
         </section>
 
-        <div className="mt-28 mb-20 text-center">
+        <div className="mt-5 mb-5 text-center">
           <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold text-center mb-6">
             ▷ Save YT Video Thumbnails in HD Quality
           </h2>
