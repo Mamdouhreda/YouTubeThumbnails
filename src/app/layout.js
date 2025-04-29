@@ -8,15 +8,14 @@ import Script from "next/script";
 const currentDate = new Date().toISOString().split("T")[0];
 
 export const metadata = {
-  title: "Download YouTube Thumbnails - Free YouTube Thumbnail Downloader Tool",
+  title: "Download YouTube Thumbnails | Free Tool",
   description:
     "Download YouTube thumbnails in high quality. Free tool to download YouTube video thumbnails in multiple sizes. No registration required.",
   keywords:
     "download youtube thumbnails, youtube thumbnail download, youtube thumbnail downloader, download youtube video thumbnail, youtube thumbnail grabber",
   metadataBase: new URL("https://youtubedownloadthumbnails.com"),
   openGraph: {
-    title:
-      "Download YouTube Thumbnails - Free YouTube Thumbnail Downloader Tool",
+    title: "Download YouTube Thumbnails | Free Tool",
     description:
       "Download YouTube thumbnails in high quality. Free tool to download YouTube video thumbnails in multiple sizes. No registration required.",
     url: "https://youtubedownloadthumbnails.com",
@@ -34,8 +33,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title:
-      "Download YouTube Thumbnails - Free YouTube Thumbnail Downloader Tool",
+    title: "Download YouTube Thumbnails | Free Tool",
     description:
       "Download YouTube thumbnails in high quality. Free tool to download YouTube video thumbnails in multiple sizes. No registration required.",
     images: ["/api/og"],

@@ -1,6 +1,5 @@
 export const metadata = {
-  title:
-    "Bulk Download YouTube Thumbnails - Free YouTube Thumbnail Downloader Tool",
+  title: "Bulk Download YouTube Thumbnails | Free Tool",
   description:
     "Download multiple YouTube thumbnails at once. Free tool to download YouTube video thumbnails in bulk. No registration required.",
   alternates: {
