@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import GoogleAnalytics from "./GoogleAnalytics";
 import Script from "next/script";
+import Providers from "@/components/Providers";
 
 // Get current date in ISO format for SEO
 const currentDate = new Date().toISOString().split("T")[0];
@@ -90,11 +91,13 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body className="min-h-screen flex flex-col">
-        <Header />
-        <main className="flex-grow container mx-auto px-4 py-8">
-          {children}
-        </main>
-        <Footer />
+        <Providers>
+          <Header />
+          <main className="flex-grow container mx-auto px-4 py-8">
+            {children}
+          </main>
+          <Footer />
+        </Providers>
       </body>
     </html>
   );

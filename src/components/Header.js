@@ -33,6 +33,12 @@ const Header = () => {
             >
               Bulk Download
             </Link>
+            <Link
+              href="/posts"
+              className="hover:text-[#FF0000] transition-colors"
+            >
+              Blog Posts
+            </Link>
           </nav>
 
           {/* Mobile Menu Button */}
@@ -75,6 +81,13 @@ const Header = () => {
               onClick={() => setIsMenuOpen(false)}
             >
               Bulk Download
+            </Link>
+            <Link
+              href="/posts"
+              className="hover:text-[#FF0000] transition-colors py-2 border-b border-gray-700"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Blog Posts
             </Link>
           </nav>
         </div>

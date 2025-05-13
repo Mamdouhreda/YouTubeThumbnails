@@ -9,10 +9,12 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@faustwp/core": "^3.2.1",
+    "@apollo/client": "^3.13.8",
+    "@faustwp/core": "^3.2.3",
     "@vercel/og": "^0.6.8",
+    "graphql": "^16.11.0",
     "jszip": "^3.10.1",
-    "next": "15.2.3",
+    "next": "^15.3.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
