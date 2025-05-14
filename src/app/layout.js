@@ -77,6 +77,13 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <head>
         <GoogleAnalytics />
+        {/* Google AdSense */}
+        <Script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3958910534370520"
+          crossOrigin="anonymous"
+          strategy="afterInteractive"
+        />
         {/* Ahrefs Analytics */}
         <script
           src="https://analytics.ahrefs.com/analytics.js"
