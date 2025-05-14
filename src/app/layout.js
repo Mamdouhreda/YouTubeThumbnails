@@ -53,6 +53,9 @@ export const metadata = {
   alternates: {
     canonical: "https://youtubedownloadthumbnails.com",
   },
+  other: {
+    "google-adsense-account": "ca-pub-3958910534370520",
+  },
 };
 
 export default function RootLayout({ children }) {
@@ -84,6 +87,8 @@ export default function RootLayout({ children }) {
           crossOrigin="anonymous"
           strategy="afterInteractive"
         />
+        {/* Google AdSense Meta Tag */}
+        <meta name="google-adsense-account" content="ca-pub-3958910534370520" />
         {/* Ahrefs Analytics */}
         <script
           src="https://analytics.ahrefs.com/analytics.js"
