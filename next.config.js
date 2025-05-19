@@ -8,6 +8,21 @@ const nextConfig = {
     formats: ["image/webp"],
     minimumCacheTTL: 86400, // 24 hours
   },
+  async redirects() {
+    return [
+      {
+        source: "/:path*",
+        has: [
+          {
+            type: "host",
+            value: "www.youtubedownloadthumbnails.com",
+          },
+        ],
+        destination: "https://youtubedownloadthumbnails.com/:path*",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 module.exports = withFaust(nextConfig);

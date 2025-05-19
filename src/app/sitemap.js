@@ -1,6 +1,6 @@
 export default async function sitemap() {
   const baseUrl = "https://youtubedownloadthumbnails.com";
-  const currentDate = new Date().toISOString();
+  const currentDate = new Date().toISOString().split("T")[0];
 
   // Define static URLs with proper canonical paths
   const staticUrls = [
@@ -53,7 +53,9 @@ export default async function sitemap() {
     // Add individual post URLs to sitemap
     const postUrls = data.posts.nodes.map((post) => ({
       url: `${baseUrl}/posts/${post.slug}`,
-      lastModified: post.modified || currentDate,
+      lastModified: post.modified
+        ? new Date(post.modified).toISOString().split("T")[0]
+        : currentDate,
       changeFrequency: "weekly",
       priority: 0.7,
     }));
